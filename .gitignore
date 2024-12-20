@@ -1,0 +1,18 @@
+
+
+# Frontend
+web/build
+node_modules
+.vite
+package-lock.json
+.vite
+
+
+# Backend
+**/__pycache__/**
+.venv
+
+# General
+.DS_Store
+.*.swp
+.env

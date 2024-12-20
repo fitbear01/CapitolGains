@@ -1,0 +1,20 @@
+stages:
+  - test
+
+unittest:
+  stage: test
+  tags:
+    - csl
+  image: python:3.9
+  before_script:
+    - cd api
+    - pip install -r requirements.txt
+  script:
+    - python manage.py test --settings=api.settings
+  artifacts:
+    when: always
+    untracked: true
+    expire_in: 7 days
+    paths:
+      - api/unittest-results.log
+  coverage: /(?i)total.*? (100(?:\.0+)?\%|[1-9]?\d(?:\.\d+)?\%)$/
